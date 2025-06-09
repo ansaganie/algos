@@ -19,13 +19,12 @@ var duplicateZeros = function(arr) {
     let hasLastZero = false;
 
     for (let i = 0; i < arr.length; i++) {
-        if (d + i + 1 >= arr.length) {
-            hasLastZero = arr[i] === 0;
-            break;
-        }
+        var len = d + i + 1;
+        if (len === arr.length) hasLastZero = arr[i] === 0;
+        if (len >= arr.length) break;
         if (arr[i] === 0) d++;
     }
-console.log(hasLastZero)
+
     let r = arr.length - 1;
     let l = r - d;
 
