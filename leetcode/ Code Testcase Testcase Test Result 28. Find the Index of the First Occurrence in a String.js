@@ -10,18 +10,12 @@
 
 var strStr = function(haystack, needle) {
     for (let i = 0; i <= haystack.length - needle.length; i++) {
-        if (haystack[i] === needle[0]) {
-            let k = i;
-            let f = true;
-            for (let j = 0; j < needle.length; j++) {
-                if (haystack[k] !== needle[j]) {
-                    f = false;
-                    break;
-                }
-                k++;
-            }
-
-            if (f) return i;
+        let j = 0;
+        while (j < needle.length && haystack[i + j] === needle[j]) {
+            j++;
+        }
+        if (j === needle.length) {
+            return i;
         }
     }
 
